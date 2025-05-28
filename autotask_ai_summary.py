@@ -37,7 +37,7 @@ def summarize(rows: List[Dict[str, str]], api_key: str) -> str:
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "You are a helpful assistant that summarizes Autotask reports."},
+            {"role": "system", "content": "You are an expert in IT management that summarizes Autotask reports."},
             {"role": "user", "content": prompt},
         ],
     )

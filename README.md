@@ -6,14 +6,15 @@ This repository contains utilities for analyzing project data. The `autotask_ai_
 - Python 3.8+
 - `openai` Python package (see `requirements.txt`)
 
-## Usage
+## Usage on Mac
 1. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+   python3 -m venv prm
+   source prm/bin/activate
+   pip3 install -r requirements.txt
+
 2. Run the summarizer with your Autotask CSV export:
-   ```bash
+   
    export OPENAI_API_KEY=your-key
-   python autotask_ai_summary.py path/to/report.csv
-   ```
+   python3 autotask_ai_summary.py path/to/report.csv
+   
    Optionally specify `--max-rows` to limit how many rows are sent to OpenAI.
