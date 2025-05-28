@@ -4,7 +4,7 @@ This repository contains utilities for analyzing project data. The `autotask_ai_
 
 ## Requirements
 - Python 3.8+
-- `openai` Python package (see `requirements.txt`)
+- `openai` Python package version 1.0 or newer (see `requirements.txt`)
 
 ## Usage on Mac
 1. Install dependencies:

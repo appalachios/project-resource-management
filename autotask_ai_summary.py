@@ -32,16 +32,19 @@ def build_prompt(rows: List[Dict[str, str]], max_rows: int = 10) -> str:
 
 def summarize(rows: List[Dict[str, str]], api_key: str) -> str:
     """Request an AI-generated summary from OpenAI."""
-    openai.api_key = api_key
+    client = openai.OpenAI(api_key=api_key)
     prompt = build_prompt(rows)
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "You are an expert in IT management that summarizes Autotask reports."},
+            {
+                "role": "system",
+                "content": "You are an expert in IT management that summarizes Autotask reports.",
+            },
             {"role": "user", "content": prompt},
         ],
     )
-    return response["choices"][0]["message"]["content"].strip()
+    return response.choices[0].message.content.strip()
 
 
 def main() -> None:
