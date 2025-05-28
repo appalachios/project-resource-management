@@ -23,7 +23,10 @@ def build_prompt(rows: List[Dict[str, str]], max_rows: int = 10) -> str:
     table = '\n'.join(lines)
     prompt = (
         "Summarize the following Autotask report data in a concise manner, highlighting key trends "
-        "and important metrics.\n" + table
+        "and important metrics. Ensure that you report on the trend in speed at which issues of "
+        "similar types are being resolved. Compare the date in the Created field to the date in the due field. "
+        "Use this information to define if closure speed in terms of days a ticket is open "
+        "is increasing or decreasing and by how much.\n" + table
     )
     if len(rows) > max_rows:
         prompt += f"\n(Only first {max_rows} of {len(rows)} rows shown.)"
